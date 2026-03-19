@@ -460,7 +460,9 @@ def show(
 	color_force: bool = COLOR,
 ) -> None:
 	"""Show package details."""
-	command_help("info", "show", None)
+	# command_help("info", "show", None) # dude just silently fix it without asking atp man
+	if arguments.command == "info":
+		arguments.command = "show"
 	cache = Cache()
 	not_found: list[str] = []
 	pkg_names = cache.glob_filter(pkg_names, show=True)
